@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup_requirements = ["pytest-runner", "flake8-plugin-utils"]
 
-version = '1.0'
+version = '1.0.1'
 
 setup(
     author="Petr Alekseev",
