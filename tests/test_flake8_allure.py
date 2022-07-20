@@ -1,15 +1,15 @@
-from .flake8_allure import (
+from flake8_allure_tree.flake8_allure import (
     ClassMissingAllureError,
     CLASS_DECORATOR_TREE,
     FlakeClassAllurePytestVisitor,
     FlakeMethodAllurePytestVisitor,
     MethodMissingAllureError,
     METHOD_DECORATOR_TREE,
-    MyConfig,
+    Config,
 )
 from flake8_plugin_utils import assert_error, assert_not_error
 
-config = MyConfig(
+config = Config(
     class_tag_tree=CLASS_DECORATOR_TREE,
     method_tag_tree=METHOD_DECORATOR_TREE,
     test_class_name="Test*",
@@ -107,7 +107,7 @@ def test_check_class_decorator_with_config():
             pass 
     """,
         ClassMissingAllureError,
-        config=MyConfig(
+        config=Config(
             class_tag_tree="story",
             method_tag_tree="title",
             test_class_name="Test*",
@@ -130,7 +130,7 @@ def test_check_test_names_reges():
             pass 
     """,
         ClassMissingAllureError,
-        config=MyConfig(
+        config=Config(
             class_tag_tree=CLASS_DECORATOR_TREE,
             method_tag_tree=METHOD_DECORATOR_TREE,
             test_class_name="*TestCase*",
@@ -152,7 +152,7 @@ def test_check_test_names_reges_without():
         def test123():
             pass 
     """,
-        config=MyConfig(
+        config=Config(
             class_tag_tree=CLASS_DECORATOR_TREE,
             method_tag_tree=METHOD_DECORATOR_TREE,
             test_class_name="TestCase*",
@@ -171,7 +171,7 @@ def test_check_test_strict_tree():
             pass 
     """,
         ClassMissingAllureError,
-        config=MyConfig(
+        config=Config(
             class_tag_tree=CLASS_DECORATOR_TREE,
             method_tag_tree=METHOD_DECORATOR_TREE,
             test_class_name="Test*",
