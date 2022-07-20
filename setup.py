@@ -6,6 +6,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup_requirements = ["pytest-runner", "flake8-plugin-utils"]
 
+version = '1.0'
 
 setup(
     author="Petr Alekseev",
@@ -35,7 +36,7 @@ setup(
     long_description_content_type="text/markdown",
     packages=find_packages(include=["flake8_allure_tree"]),
     setup_requires=setup_requirements,
-    version="0.0.1",
+    version=version,
     zip_safe=False,
     entry_points={
         "flake8.extension": [
