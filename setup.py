@@ -33,7 +33,7 @@ setup(
     name="flake8_allure_tree",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=find_packages(include=["flake8_allure_tree"]),
+    packages=find_packages(include=["flake8_allure_tree", "tests"]),
     setup_requires=setup_requirements,
     version="0.0.1",
     zip_safe=False,
