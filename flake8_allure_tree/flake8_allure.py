@@ -55,7 +55,7 @@ def _get_required_decorators(node, decorators, strict_tree):
     return decorators_tree
 
 
-class MyConfig:
+class Config:
     def __init__(
         self,
         class_tag_tree,
@@ -123,23 +123,38 @@ class AllurePytestPlugin(Plugin):
 
     @classmethod
     def add_options(cls, options_manager: OptionManager):
-        options_manager.add_option("--class-tag-tree", default=CLASS_DECORATOR_TREE)
-        options_manager.add_option("--method-tag-tree", default=METHOD_DECORATOR_TREE)
         options_manager.add_option(
-            "--test-class-name", default="Test*", help="Support glob pattern"
+            "--class-tag-tree",
+            default=CLASS_DECORATOR_TREE,
+            parse_from_config=True,
         )
         options_manager.add_option(
-            "--test-method-name", default="test_*", help="Support glob pattern"
+            "--method-tag-tree",
+            default=METHOD_DECORATOR_TREE,
+            parse_from_config=True,
+        )
+        options_manager.add_option(
+            "--test-class-name",
+            default="Test*",
+            help="Support glob pattern",
+            parse_from_config=True,
+        )
+        options_manager.add_option(
+            "--test-method-name",
+            default="test_*",
+            help="Support glob pattern",
+            parse_from_config=True,
         )
         options_manager.add_option(
             "--strict-tree",
             action="store_true",
             help="Use strict tree. Unconditionally checks for tags in all tests",
+            parse_from_config=True,
         )
 
     @classmethod
     def parse_options_to_config(cls, option_manager, options, args):
-        return MyConfig(
+        return Config(
             class_tag_tree=options.class_tag_tree,
             method_tag_tree=options.method_tag_tree,
             test_class_name=options.test_class_name,
