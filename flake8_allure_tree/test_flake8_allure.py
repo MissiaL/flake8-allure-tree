@@ -1,4 +1,4 @@
-from flake8_allure import (
+from .flake8_allure import (
     ClassMissingAllureError,
     CLASS_DECORATOR_TREE,
     FlakeClassAllurePytestVisitor,
