@@ -12,12 +12,12 @@ METHOD_DECORATOR_TREE = "title>tag"
 
 class ClassMissingAllureError(Error):
     code = "AL001"
-    message = "Class '{name}' should have tags the right position: {tree}. Required '{deco}' decorators"
+    message = "Class '{name}' should have tags the right position: {tree}. Required '{deco}' decorators"  # noqa: E501
 
 
 class MethodMissingAllureError(Error):
     code = "AL002"
-    message = "Method '{name}' should have tags the right position: {tree}. Required '{deco}' decorators"
+    message = "Method '{name}' should have tags the right position: {tree}. Required '{deco}' decorators"  # noqa: E501
 
 
 def _matches_prefix_or_glob_option(pattern: str, name: str) -> bool:
