@@ -17,4 +17,4 @@ By default, tests are checked that contain at least one allure decorator.
 
 Install:
 
-`pip install -e git+https://github.com/missial/flake8-allure-tree#egg=flake8-allure-tree`
+`pip install flake8-allure-tree`
